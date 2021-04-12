@@ -1,0 +1,10 @@
+.login {
+    margin: 0px auto;
+    max-width: 500px;
+}
+.login h2 {
+    margin: 50px 0 10px 0;
+}
+.non-visible {
+    display: none;
+}

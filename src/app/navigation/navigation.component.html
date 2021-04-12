@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm navbar-dark title">
+    <ul class="navbar-nav title">
+        <li class="nav-item active ml-3">
+            <a class="nav-link" [routerLink]="['/clients']">Клиенты</a>
+        </li>	
+        <li class="nav-item active ml-3">
+            <a class="nav-link" [routerLink]="['/orders']">Заказы</a>
+        </li>	
+        <li class="nav-item active ml-3">
+            <a class="nav-link" [routerLink]="['/items']">Товары</a>
+        </li>	
+        <li class="nav-item active ml-3">
+            <a class="nav-link" [routerLink]="['/users']">Пользователи</a>
+        </li>	
+        <li #login class="nav-item active ml-3" >
+            <a class="nav-link" [routerLink]="['/login']">Login</a>
+        </li>	
+        <li #logout class="nav-item active ml-3">
+            <a class="nav-link" [routerLink]="['/logout']">Logout</a>
+        </li>	
+    </ul>
+</nav> 

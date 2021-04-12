@@ -1,0 +1,8 @@
+.title {
+    background-color: rgb(6,19,72);
+    color: white;
+}
+.non-visible {
+    display: none;
+}
+

@@ -1,0 +1,32 @@
+<div class="card-content">
+    <h2>Карточка пользователя</h2>
+    <form action="" method="post" class="was-validated">
+        <div class="form-group">
+            <label for="lastName">Фамилия</label>
+            <input [(ngModel)]="user.lastName" type="text" class="form-control" id="lastName" placeholder="Введите фамилию" name="lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="firstName">Имя</label>
+            <input [(ngModel)]="user.firstName" type="text" class="form-control" id="firstName" placeholder="Введите имя" name="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="login">Имя пользователя</label>
+            <input [(ngModel)]="user.username" type="text" class="form-control" id="login" placeholder="Введите имя пользователя" name="login" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Пароль</label>
+            <input [(ngModel)]="user.password" type="password" class="form-control" id="pwd" placeholder="Введите пароль" name="pswd" required>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input [(ngModel)]="isUser" type="checkbox" class="form-check-input" value="" name="isUser">USER
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input [(ngModel)]="isAdmin" type="checkbox" class="form-check-input" value="" name="isAdmin">ADMIN
+            </label>
+        </div>
+        <button (click)="saveUser()" class="btn btn-primary">Сохранить</button>
+    </form>
+</div> 
