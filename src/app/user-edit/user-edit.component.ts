@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/services/user';
 import { UserService } from 'src/services/user.service';
+
+import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-edit',
@@ -22,6 +24,8 @@ export class UserEditComponent implements OnInit {
 
   isAdmin: Boolean = false;
   isUser: Boolean = false;
+
+  @ViewChild("p") public popover: NgbPopover;
 
   constructor(private router: Router, private userService: UserService, route: ActivatedRoute) { 
     route.paramMap.subscribe(params => this.user.userId = +params.get('id'));
@@ -60,11 +64,29 @@ export class UserEditComponent implements OnInit {
     }
     if (this.user.userId) {
       this.userService.editUser(this.user)
-        .subscribe(() => {this.router.navigate(["/users"])});
+        .subscribe(
+          (response: Response) => {this.router.navigate(["/users"])},
+          (error) => {
+            console.log(error.error);
+            if (error.status == 400 && error.error.errorCode == "USER" && 
+              error.error.message.includes("Username") && error.error.message.includes("already exists")) {
+                this.popover.open();
+              }
+          }
+        );
     } 
     else {
       this.userService.addUser(this.user)
-        .subscribe((response: Response) => {this.router.navigate(["/users"])});
+        .subscribe(
+          (response: Response) => {this.router.navigate(["/users"])},
+          (error) => {
+            console.log(error.error);
+            if (error.status == 400 && error.error.errorCode == "USER" && 
+              error.error.message.includes("Username") && error.error.message.includes("already exists")) {
+                this.popover.open();
+              }
+          }
+        );
     }
   }
 }

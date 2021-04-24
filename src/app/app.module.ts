@@ -14,6 +14,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserService } from 'src/services/user.service';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [LoginService, UserService],
   bootstrap: [AppComponent]
