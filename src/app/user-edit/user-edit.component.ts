@@ -71,7 +71,11 @@ export class UserEditComponent implements OnInit {
             if (error.status == 400 && error.error.errorCode == "USER" && 
               error.error.message.includes("Username") && error.error.message.includes("already exists")) {
                 this.popover.open();
-              }
+            }
+            if (error.status ==400 && error.error.errorCode == "OBJECT_STALE") {
+              const alert = document.getElementsByClassName("alert non-visible")[0];
+              alert.classList.remove("non-visible");
+            }
           }
         );
     } 
@@ -84,7 +88,7 @@ export class UserEditComponent implements OnInit {
             if (error.status == 400 && error.error.errorCode == "USER" && 
               error.error.message.includes("Username") && error.error.message.includes("already exists")) {
                 this.popover.open();
-              }
+            }
           }
         );
     }

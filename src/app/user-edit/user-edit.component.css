@@ -3,6 +3,10 @@
     color: white;
 }
 
+.non-visible {
+    display: none;
+}
+
 .card-content {
     margin: 0px auto;
     max-width: 500px;
