@@ -7,68 +7,36 @@ import { User } from "./user";
 export class UserService {
     constructor(private http: HttpClient) { }
 
-    getUsers(): Observable<User[]> {
-        let token: string = localStorage.getItem('token');
+    getOptions() {
+      let token: string = localStorage.getItem('token');
+  
+      let httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'token': token
+        })
+      };
+  
+      return httpOptions;
+    }
 
-        let httpOptions = {
-            headers: new HttpHeaders({
-              'Content-Type':  'application/json',
-              'token': token
-            })
-          };
-    
-        return this.http.get<User[]>('http://localhost:8080/users', httpOptions);
+    getUsers(): Observable<User[]> {
+        return this.http.get<User[]>('http://localhost:8080/users', this.getOptions());
     }
 
     getUser(id: Number): Observable<User> {
-      let token: string = localStorage.getItem('token');
-
-      let httpOptions = {
-          headers: new HttpHeaders({
-            'Content-Type':  'application/json',
-            'token': token
-          })
-        };
-
-        return this.http.get<User>('http://localhost:8080/users/' + String(id), httpOptions);  
+        return this.http.get<User>('http://localhost:8080/users/' + String(id), this.getOptions());  
     }
 
     addUser(user): Observable<{}> {
-      let token: string = localStorage.getItem('token');
-
-      let httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'token': token
-        })
-      };
-
-      return this.http.post('http://localhost:8080/users', user, httpOptions);
+      return this.http.post('http://localhost:8080/users', user, this.getOptions());
     }
 
     editUser(user: User) : Observable<{}> {
-      let token: string = localStorage.getItem('token');
-
-      let httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'token': token
-        })
-      };
-
-      return this.http.put('http://localhost:8080/users/' + String(user.userId), user, httpOptions);
+      return this.http.put('http://localhost:8080/users/' + String(user.userId), user, this.getOptions());
     }
 
     deleteUser(user: User) : Observable<{}> {
-      let token: string = localStorage.getItem('token');
-
-      let httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'token': token
-        })
-      };
-
-      return this.http.delete('http://localhost:8080/users/' + String(user.userId), httpOptions);
+      return this.http.delete('http://localhost:8080/users/' + String(user.userId), this.getOptions());
     }
 }

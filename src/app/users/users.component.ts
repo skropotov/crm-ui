@@ -31,7 +31,6 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(user: User) {
-    console.log(user);
     this.userService.deleteUser(user).subscribe((response: Response) => {
         for (let index = 0; index < this.users.length; index++) {
           if (this.users[index].userId == user.userId ) {
@@ -39,6 +38,6 @@ export class UsersComponent implements OnInit {
             break;
           }
         }
-      });
+    });
   }
 }
