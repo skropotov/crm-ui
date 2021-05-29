@@ -1,0 +1,21 @@
+.title {
+    background-color: rgb(6,19,72);
+    color: white;
+}
+
+.non-visible {
+    display: none;
+}
+
+.card-content {
+    margin: 0px auto;
+    max-width: 500px;
+}
+
+.card-content h2 {
+    margin: 50px 0 10px 0;
+}
+
+.card-content form button {
+    margin-top: 20px;
+}

@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
 
   deleteUser(user: User) {
     this.userService.deleteUser(user).subscribe((response: Response) => {
-        for (let index = 0; index < this.users.length; index++) {
+        for (let index = 0; index < this.users.length - 1; index++) {
           if (this.users[index].userId == user.userId ) {
             this.users.splice(index, 1);
             break;

@@ -1,0 +1,29 @@
+<div class="alert alert-danger warning-content non-visible">
+    Продукт, над которым вы работаете был изменен другим пользователем. Внесенные вами изменения не были сохранены. Обновите страницу и попробуйте еще раз.
+</div>
+<div class="card-content">
+    <h2>Карточка продукта</h2>
+    <form action="" method="post" class="needs-validation">
+        <div class="form-group">
+            <label for="name">Наименование</label>
+            <input [(ngModel)]="product.name" type="text" data-toggle="name-popover" ngbPopover="Товар с такими наименованием и описанием уже существует" [autoClose]="false" triggers="manual" #p="ngbPopover" class="form-control" id="name" placeholder="Введите наименование товара" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Описание</label>
+            <input [(ngModel)]="product.description" type="text" class="form-control" id="description" placeholder="Введите описание" name="description">
+        </div>
+        <div class="form-group">
+            <label for="vendorCode">Код производителя</label>
+            <input [(ngModel)]="product.vendorCode" type="text" class="form-control" id="vendorCode" placeholder="Введите код производителя" name="vendorCode" required>
+        </div>
+        <div class="form-group">
+            <label for="barCode">Штрих-код</label>
+            <input [(ngModel)]="product.barCode" type="number" class="form-control" id="barCode" name="barCode" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Цена</label>
+            <input [(ngModel)]="product.price" type="number" class="form-control" id="price" name="price" required>
+        </div>
+        <button (click)="saveProduct()" class="btn btn-primary">Сохранить</button>
+    </form>
+</div> 

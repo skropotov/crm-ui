@@ -32,7 +32,7 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user.status ="ACTIVE";
+    this.user.status = "ACTIVE";
     if (this.user.userId) {
       this.userService.getUser(this.user.userId)
         .subscribe(user => {

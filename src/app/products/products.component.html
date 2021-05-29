@@ -1,0 +1,36 @@
+<div class="list-content">
+    <h2>Продукты</h2>
+    <div class="list-table">
+        <div class="list-button">
+            <span>Новый продукт</span>
+            <button class="btn btn-primary btn-sm ms-3 ripple-surface" (click)="addProductClick()">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Описание</th>
+                    <th>Код производителя</th>
+                    <th>Цена</th>
+                    <th style="width: 70px;">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.vendorCode}}</td>
+                    <td>{{product.price}}</td>
+                    <td>
+                        <a href="/products/{{product.productId}}">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <i class="material-icons button" (click)="deleteProduct(product)">delete</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -15,6 +15,15 @@ import { HomeComponent } from './home/home.component';
 import { UserService } from 'src/services/user.service';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductsComponent } from './products/products.component';
+import { ClientsComponent } from './clients/clients.component';
+import { OrdersComponent } from './orders/orders.component';
+import { ProductService } from './services/product.service';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ClientService } from './services/client.service';
+import { OrderService } from './services/order.service';
+import { ClientEditComponent } from './client-edit/client-edit.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +34,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     UsersComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
+    ProductsComponent,
+    ClientsComponent,
+    OrdersComponent,
+    ProductEditComponent,
+    ClientEditComponent,
+    OrderEditComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +49,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule
   ],
-  providers: [LoginService, UserService],
+  providers: [LoginService, UserService, ProductService, ClientService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
