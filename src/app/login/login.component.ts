@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/services/login.service';
-import { Token } from 'src/services/token';
+import { LoginService } from '../services/login.service';
+import { Token } from '../services/token';
 
 @Component({
   selector: 'app-login',

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/services/user';
-import { UserService } from 'src/services/user.service';
+import { User } from '../services/user';
+import { UserService } from '../services/user.service';
 
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
